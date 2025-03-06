@@ -29,7 +29,7 @@ import cartopy
 import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
-
+import math
 
 GROUND_STATION_USED_COLOR = "#3b3b3b"
 GROUND_STATION_UNUSED_COLOR = "black"
@@ -71,6 +71,7 @@ def print_graphical_routes_and_rtt(
     dynamic_state_update_interval_ns = dynamic_state_update_interval_ms * 1000 * 1000
     max_gsl_length_m = exputil.parse_positive_float(description.get_property_or_fail("max_gsl_length_m"))
     max_isl_length_m = exputil.parse_positive_float(description.get_property_or_fail("max_isl_length_m"))
+
 
     # For each time moment
     fstate = {}
@@ -119,10 +120,11 @@ def print_graphical_routes_and_rtt(
                 print("  > RTT...... %.2f ms" % (rtt_ns / 1e6))
                 print("")
 
+
                 # Now we make a pdf for it
                 pdf_filename = pdf_dir + "/graphics_%d_to_%d_time_%dms.pdf" % (src, dst, int(t / 1000000))
                 f = plt.figure()
-                
+              
                 # Projection
                 ax = plt.axes(projection=ccrs.PlateCarree())
 
@@ -162,40 +164,43 @@ def print_graphical_routes_and_rtt(
                         fontdict={"size": 1}
                     )
 
-                # # ISLs
-                # for isl in list_isls:
-                #     ephem_body = satellites[isl[0]]
-                #     ephem_body.compute(time_moment_str)
-                #     from_latitude_deg = math.degrees(ephem_body.sublat)
-                #     from_longitude_deg = math.degrees(ephem_body.sublong)
-                #
-                #     ephem_body = satellites[isl[1]]
-                #     ephem_body.compute(time_moment_str)
-                #     to_latitude_deg = math.degrees(ephem_body.sublat)
-                #     to_longitude_deg = math.degrees(ephem_body.sublong)
-                #
-                #     # Plot the line
-                #     if ground_stations[src - len(satellites)]["longitude_degrees_str"] <= \
-                #        from_longitude_deg \
-                #        <= ground_stations[dst - len(satellites)]["longitude_degrees_str"] \
-                #        and \
-                #        ground_stations[src - len(satellites)]["latitude_degrees_str"] <= \
-                #        from_latitude_deg \
-                #        <= ground_stations[dst - len(satellites)]["latitude_degrees_str"] \
-                #        and \
-                #        ground_stations[src - len(satellites)]["longitude_degrees_str"] <= \
-                #        to_longitude_deg \
-                #        <= ground_stations[dst - len(satellites)]["longitude_degrees_str"] \
-                #        and \
-                #        ground_stations[src - len(satellites)]["latitude_degrees_str"] <= \
-                #        to_latitude_deg \
-                #        <= ground_stations[dst - len(satellites)]["latitude_degrees_str"]:
-                #             plt.plot(
-                #         [from_longitude_deg, to_longitude_deg],
-                #         [from_latitude_deg, to_latitude_deg],
-                #         color='#eb6b38', linewidth=0.1, marker='',
-                #         transform=ccrs.Geodetic(),
-                #     )
+                # ISLs
+                for isl in list_isls:
+                    ephem_body = satellites[isl[0]]
+                    ephem_body.compute(time_moment_str)
+                    from_latitude_deg = math.degrees(ephem_body.sublat)
+                    from_longitude_deg = math.degrees(ephem_body.sublong)
+               
+                    ephem_body = satellites[isl[1]]
+                    ephem_body.compute(time_moment_str)
+                    to_latitude_deg = math.degrees(ephem_body.sublat)
+                    to_longitude_deg = math.degrees(ephem_body.sublong)
+               
+                    # Plot the line
+
+                    transform=ccrs.PlateCarree()
+                    if float(ground_stations[src - len(satellites)]["longitude_degrees_str"]) <= \
+                       from_longitude_deg \
+                       <= float(ground_stations[dst - len(satellites)]["longitude_degrees_str"]) \
+                       and \
+                       float(ground_stations[src - len(satellites)]["latitude_degrees_str"]) <= \
+                       from_latitude_deg \
+                       <= float(ground_stations[dst - len(satellites)]["latitude_degrees_str"]) \
+                       and \
+                       float(ground_stations[src - len(satellites)]["longitude_degrees_str"]) <= \
+                       to_longitude_deg \
+                       <= float(ground_stations[dst - len(satellites)]["longitude_degrees_str"]) \
+                       and \
+                       float(ground_stations[src - len(satellites)]["latitude_degrees_str"]) <= \
+                       to_latitude_deg \
+                       <= float(ground_stations[dst - len(satellites)]["latitude_degrees_str"]):
+                            plt.plot(
+                        [from_longitude_deg, to_longitude_deg],
+                        [from_latitude_deg, to_latitude_deg],
+                        color='#eb6b38', linewidth=0.1, marker='',
+                        #transform=ccrs.Geodetic(),
+                        transform=transform
+                    )
 
                 # Other ground stations
                 for gid in range(len(ground_stations)):
@@ -252,14 +257,16 @@ def print_graphical_routes_and_rtt(
                             to_longitude_deg = float(
                                 ground_stations[to_node_id - len(satellites)]["longitude_degrees_str"]
                             )
-
                         # Plot the line
+                        transform=ccrs.PlateCarree()
                         plt.plot(
                             [from_longitude_deg, to_longitude_deg],
                             [from_latitude_deg, to_latitude_deg],
                             color=ISL_COLOR, linewidth=0.5, marker='',
-                            transform=ccrs.Geodetic(),
+                            #transform=ccrs.Geodetic(),
+                            transform=transform
                         )
+
 
                 # Across all points, we need to find the latitude / longitude to zoom into
                 # min_latitude = min(

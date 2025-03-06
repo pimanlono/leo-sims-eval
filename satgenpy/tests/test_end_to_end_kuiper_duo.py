@@ -230,7 +230,7 @@ class TestEndToEnd(unittest.TestCase):
                     MAX_GSL_LENGTH_M,
                     MAX_ISL_LENGTH_M,
                     dynamic_state_algorithm,
-                    False
+                    True
                 )
 
             # Clean slate start
@@ -579,5 +579,5 @@ class TestEndToEnd(unittest.TestCase):
                         self.assertEqual(columns[0][i], 51650000000)
 
             # Clean up
-            local_shell.remove_force_recursive("temp_gen_data")
-            local_shell.remove_force_recursive("temp_analysis_data")
+            #local_shell.remove_force_recursive("temp_gen_data")
+            #local_shell.remove_force_recursive("temp_analysis_data")

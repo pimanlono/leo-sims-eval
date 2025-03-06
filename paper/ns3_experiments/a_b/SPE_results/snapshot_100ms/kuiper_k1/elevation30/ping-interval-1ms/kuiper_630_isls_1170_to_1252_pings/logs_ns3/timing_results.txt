@@ -1,0 +1,15 @@
+[    0.0 -     0.0] (0.0 s) :: Configure run and logs directory
+[    0.0 -     0.0] (0.0 s) :: Configure simulator
+[    0.0 -     0.0] (0.0 s) :: Setup TCP parameters
+[    0.0 -     7.1] (7.1 s) :: Create initial single forwarding state
+[    7.1 -    28.5] (21.3 s) :: Setup routing arbiter on each node
+[   28.5 -    29.9] (1.5 s) :: Create initial single forwarding state
+[   29.9 -    29.9] (0.0 s) :: Set first GSL interface bandwidth
+[   29.9 -    29.9] (0.0 s) :: Determined pingmesh pairs
+[   29.9 -    29.9] (0.0 s) :: Remove previous pingmesh log files
+[   29.9 -    30.0] (0.0 s) :: Setup pingmesh servers
+[   30.0 -    30.0] (0.0 s) :: Setup pingmesh clients
+[   30.0 -    30.0] (0.0 s) :: Whatever is between previous timestamp and the simulation run
+[   30.0 -   268.5] (238.6 s) :: Run simulation
+[  268.5 -   268.6] (0.1 s) :: Write pingmesh log files
+[  268.6 -   268.9] (0.2 s) :: Destroy simulator

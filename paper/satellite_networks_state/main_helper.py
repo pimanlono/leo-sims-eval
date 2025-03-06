@@ -139,19 +139,47 @@ class MainHelper:
             gsl_interfaces_per_satellite = 1
         elif dynamic_state_algorithm == "algorithm_paired_many_only_over_isls":
             gsl_interfaces_per_satellite = len(ground_stations)
+        #pilar
+        elif dynamic_state_algorithm == "algorithm_free_gs_one_sat_many_only_over_isls":
+            gsl_interfaces_per_satellite = len(ground_stations)
         else:
             raise ValueError("Unknown dynamic state algorithm: " + dynamic_state_algorithm)
 
         print("Generating GSL interfaces info..")
-        satgen.generate_simple_gsl_interfaces_info(
-            output_generated_data_dir + "/" + name + "/gsl_interfaces_info.txt",
-            self.NUM_ORBS * self.NUM_SATS_PER_ORB,
-            len(ground_stations),
-            gsl_interfaces_per_satellite,  # GSL interfaces per satellite
-            1,  # (GSL) Interfaces per ground station
-            1,  # Aggregate max. bandwidth satellite (unit unspecified)
-            1   # Aggregate max. bandwidth ground station (same unspecified unit)
-        )
+
+        #Pilar: comento lo que había, que solo asigna 1 al aggregate bw satellite y lo pongo a 100 para que pueda ejecutar el algoritmo 3
+
+        if dynamic_state_algorithm=="algorithm_free_gs_one_sat_many_only_over_isls": 
+            satgen.generate_simple_gsl_interfaces_info(
+                output_generated_data_dir + "/" + name + "/gsl_interfaces_info.txt",
+                self.NUM_ORBS * self.NUM_SATS_PER_ORB,
+                len(ground_stations),
+                gsl_interfaces_per_satellite,  # GSL interfaces per satellite
+                1,  # (GSL) Interfaces per ground station
+                gsl_interfaces_per_satellite,  # Aggregate max. bandwidth satellite (unit unspecified)
+                1   # Aggregate max. bandwidth ground station (same unspecified unit)
+            )
+        else:
+            satgen.generate_simple_gsl_interfaces_info(
+                output_generated_data_dir + "/" + name + "/gsl_interfaces_info.txt",
+                self.NUM_ORBS * self.NUM_SATS_PER_ORB,
+                len(ground_stations),
+                gsl_interfaces_per_satellite,  # GSL interfaces per satellite
+                1,  # (GSL) Interfaces per ground station
+                1,  # Aggregate max. bandwidth satellite (unit unspecified)
+                1   # Aggregate max. bandwidth ground station (same unspecified unit)
+            )
+
+#        satgen.generate_simple_gsl_interfaces_info(
+#            output_generated_data_dir + "/" + name + "/gsl_interfaces_info.txt",
+#            self.NUM_ORBS * self.NUM_SATS_PER_ORB,
+#            len(ground_stations),
+#            gsl_interfaces_per_satellite,  # GSL interfaces per satellite
+#            1,  # (GSL) Interfaces per ground station
+#            1,  # Aggregate max. bandwidth satellite (unit unspecified)
+#            1   # Aggregate max. bandwidth ground station (same unspecified unit)
+#        )
+
 
         # Forwarding state
         print("Generating forwarding state...")

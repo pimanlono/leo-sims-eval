@@ -109,13 +109,16 @@ def analyze_time_step_path(output_data_dir, satellite_network_dir,
                                 if len(path_list_per_pair[src][dst]) == 0 \
                                         or path != path_list_per_pair[src][dst][-1][0]:
                                     path_list_per_pair[src][dst].append((path, t))
-
             c_idx += 1
+
+
 
         # Show progress a bit
         print("%d / %d" % (it, num_iterations))
         it += 1
     print("")
+
+
 
     # Calculate path overlap
     time_between_path_change_ns_list = []
@@ -125,11 +128,16 @@ def analyze_time_step_path(output_data_dir, satellite_network_dir,
     for src in range(len(ground_stations)):
         for dst in range(src + 1, len(ground_stations)):
             base_path_list = per_dyn_state_path_list_per_pair[0][src][dst]
+
+            print("PILAR : base_path_list",base_path_list)
             for j in range(2, len(base_path_list)):  # First change is from epoch, which is not representative
                 time_between_path_change_ns_list.append(base_path_list[j][1] - base_path_list[j - 1][1])
+                print("PILAR ","src: ",src,"dst: ",dst,time_between_path_change_ns_list)
             for c_idx in range(0, len(configs)):
                 worse_path_list = per_dyn_state_path_list_per_pair[c_idx][src][dst]
+                print("\tPILAR ",c_idx, "worse_path_list", worse_path_list)
                 per_config_pair_missed_path_changes_list[c_idx].append(len(base_path_list) - len(worse_path_list))
+                print("\t\tPILAR ","per_config_missed_change",per_config_pair_missed_path_changes_list[c_idx],"\n")
 
     #################################################
 

@@ -23,9 +23,11 @@ if [ "$1" == "" ] || [ "$1" == "--satnet" ] || [ "$2" == "--satnet" ] || [ "$3" 
   echo "Performing satellite-network tests"
   cd test_data || exit 1
   bash extract_test_data.sh || exit 1
+  echo "Acaba de ejecutar extract_test_data.sh"
   cd .. || exit 1
-  python test.py -v -s "satellite-network" -t ../test_results/test_results_satellite_network || exit 1
+  python3 test.py -v -s "satellite-network" -t ../test_results/test_results_satellite_network || exit 1
   cat ../test_results/test_results_satellite_network.txt
+  echo "tras el python3"
 fi
 
 # Back to main directory

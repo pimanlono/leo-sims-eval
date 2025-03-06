@@ -1,0 +1,2 @@
+Source    Target    Mean latency there    Mean latency back     Min. RTT        Mean RTT        Max. RTT        Smp.std. RTT    Reply arrival
+1608      1605      10.81 ms              10.81 ms              20.56 ms        21.62 ms        27.13 ms        0.73 ms         199980/200000 (100%)

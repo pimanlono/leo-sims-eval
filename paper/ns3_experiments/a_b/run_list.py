@@ -23,7 +23,7 @@
 # Core values
 dynamic_state_update_interval_ms = 100                          # 100 millisecond update interval
 simulation_end_time_s = 200                                     # 200 seconds
-pingmesh_interval_ns = 1 * 1000 * 1000                          # A ping every 1ms
+pingmesh_interval_ns = 1*1000*1000 #1 * 1000 * 1000                          # A ping every 1ms
 enable_isl_utilization_tracking = True                          # Enable utilization tracking
 isl_utilization_tracking_interval_ns = 1 * 1000 * 1000 * 1000   # 1 second utilization intervals
 
@@ -37,17 +37,29 @@ dynamic_state = "dynamic_state_" + str(dynamic_state_update_interval_ms) + "ms_f
 # > Manila (1173) to Dalian (1241)
 # > Istanbul (1170) to Nairobi (1252)
 # > Paris (1180 (1156 for the Paris-Moscow GS relays)) to Moscow (1177 (1232 for the Paris-Moscow GS relays))
-full_satellite_network_isls = "kuiper_630_isls_plus_grid_ground_stations_top_100_algorithm_free_one_only_over_isls"
-full_satellite_network_gs_relay = "kuiper_630_isls_none_ground_stations_paris_moscow_grid_algorithm_free_one_only_gs_relays"
+#full_satellite_network_isls = "kuiper_630_isls_plus_grid_ground_stations_top_100_algorithm_free_one_only_over_isls"
+#full_satellite_network_gs_relay = "kuiper_630_isls_none_ground_stations_paris_moscow_grid_algorithm_free_one_only_gs_relays"
+full_satellite_network_isls = "telesat_1015_isls_plus_grid_ground_stations_top_100_algorithm_free_one_only_over_isls"
+#full_satellite_network_gs_relay = "telesat_1015_isls_none_ground_stations_paris_moscow_grid_algorithm_free_one_only_gs_relays"
+#full_satellite_network_isls = "starlink_550_isls_plus_grid_ground_stations_top_100_algorithm_free_one_only_over_isls"
+#full_satellite_network_gs_relay = "starlink_550_isls_none_ground_stations_paris_moscow_grid_algorithm_free_one_only_gs_relays"
 chosen_pairs = [
-    ("kuiper_630_isls", 1174, 1229, "TcpNewReno", full_satellite_network_isls),
-    ("kuiper_630_isls", 1174, 1229, "TcpVegas", full_satellite_network_isls),
-    ("kuiper_630_isls", 1173, 1241, "TcpNewReno", full_satellite_network_isls),
-    ("kuiper_630_isls", 1173, 1241, "TcpVegas", full_satellite_network_isls),
-    ("kuiper_630_isls", 1170, 1252, "TcpNewReno", full_satellite_network_isls),
-    ("kuiper_630_isls", 1170, 1252, "TcpVegas", full_satellite_network_isls),
-    ("kuiper_630_isls", 1180, 1177, "TcpNewReno", full_satellite_network_isls),
-    ("kuiper_630_gs_relays", 1156, 1232, "TcpNewReno", full_satellite_network_gs_relay),
+#    ("kuiper_630_isls", 1170, 1252, "TcpNewReno", full_satellite_network_isls),
+  # ("kuiper_630_isls", 1170, 1252, "TcpVegas", full_satellite_network_isls),
+#    ("kuiper_630_isls", 1173, 1241, "TcpNewReno", full_satellite_network_isls),
+   # ("kuiper_630_isls", 1173, 1241, "TcpVegas", full_satellite_network_isls),
+#    ("kuiper_630_isls", 1174, 1229, "TcpNewReno", full_satellite_network_isls),
+# ("kuiper_630_isls", 1174, 1229, "TcpVegas", full_satellite_network_isls),
+#    ("kuiper_630_isls", 1180, 1177, "TcpNewReno", full_satellite_network_isls),
+#    ("kuiper_630_gs_relays", 1156, 1232, "TcpNewReno", full_satellite_network_gs_relay),
+   ("telesat_1015_isls", 365, 447, "TcpNewReno", full_satellite_network_isls),
+    ("telesat_1015_isls", 368, 436, "TcpNewReno", full_satellite_network_isls),
+    ("telesat_1015_isls", 369, 424, "TcpNewReno", full_satellite_network_isls),
+    ("telesat_1015_isls", 375, 372, "TcpNewReno", full_satellite_network_isls),
+#    ("starlink_550_isls",1598,1680, "TcpNewReno", full_satellite_network_isls),
+#    ("starlink_550_isls", 1601, 1669, "TcpNewReno", full_satellite_network_isls),
+#    ("starlink_550_isls", 1602, 1657, "TcpNewReno", full_satellite_network_isls),
+#    ("starlink_550_isls", 1608, 1605, "TcpNewReno", full_satellite_network_isls),
 ]
 
 
@@ -91,7 +103,7 @@ def get_pings_run_list():
                 "dynamic_state": dynamic_state,
                 "dynamic_state_update_interval_ns": dynamic_state_update_interval_ns,
                 "simulation_end_time_ns": simulation_end_time_ns,
-                "data_rate_megabit_per_s": 10000.0,
+                "data_rate_megabit_per_s": 10.0,
                 "queue_size_pkt": 100000,
                 "enable_isl_utilization_tracking": enable_isl_utilization_tracking,
                 "isl_utilization_tracking_interval_ns": isl_utilization_tracking_interval_ns,

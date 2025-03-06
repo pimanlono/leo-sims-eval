@@ -47,7 +47,8 @@ MEAN_MOTION_REV_PER_DAY = 15.19  # Altitude ~550 km
 ALTITUDE_M = 550000  # Altitude ~550 km
 
 # From https://fcc.report/IBFS/SAT-MOD-20181108-00083/1569860.pdf (minimum angle of elevation: 25 deg)
-SATELLITE_CONE_RADIUS_M = 940700
+#SATELLITE_CONE_RADIUS_M = 940700
+SATELLITE_CONE_RADIUS_M = ALTITUDE_M/math.tan(math.radians(35))
 
 MAX_GSL_LENGTH_M = math.sqrt(math.pow(SATELLITE_CONE_RADIUS_M, 2) + math.pow(ALTITUDE_M, 2))
 

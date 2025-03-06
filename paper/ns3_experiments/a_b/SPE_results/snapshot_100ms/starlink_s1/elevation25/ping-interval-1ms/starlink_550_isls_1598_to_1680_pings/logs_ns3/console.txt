@@ -1,0 +1,174 @@
+Waf: Entering directory `/home/pilar/hypatia/ns3-sat-sim/simulator/build/debug_all'
+Waf: Leaving directory `/home/pilar/hypatia/ns3-sat-sim/simulator/build/debug_all'
+Build commands will be stored in build/debug_all/compile_commands.json
+'build' finished successfully (0.598s)
+BASIC SIMULATION START
+  > Date... Wednesday February 19, 2025
+  > Time... 11:51:31
+
+CONFIGURE RUN DIRECTORY
+  > Run directory: ../../paper/ns3_experiments/a_b/runs/starlink_550_isls_1598_to_1680_pings
+  > Logs directory: ../../paper/ns3_experiments/a_b/runs/starlink_550_isls_1598_to_1680_pings/logs_ns3
+
+CONFIGURATION
+-----
+KEY                                       VALUE
+dynamic_state_update_interval_ns          100000000
+enable_isl_utilization_tracking           true
+enable_pingmesh_scheduler                 true
+gsl_data_rate_megabit_per_s               10.0
+gsl_max_queue_size_pkts                   100000
+isl_data_rate_megabit_per_s               10.0
+isl_max_queue_size_pkts                   100000
+isl_utilization_tracking_interval_ns      1000000000
+pingmesh_endpoint_pairs                   set(1598->1680)
+pingmesh_interval_ns                      1000000
+satellite_network_dir                     ../../../../satellite_networks_state/gen_data/starlink_550_isls_plus_grid_ground_stations_top_100_algorithm_free_one_only_over_isls
+satellite_network_routes_dir              ../../../../satellite_networks_state/gen_data/starlink_550_isls_plus_grid_ground_stations_top_100_algorithm_free_one_only_over_isls/dynamic_state_100ms_for_200s
+simulation_end_time_ns                    200000000000
+simulation_seed                           123456789
+tcp_socket_type                           TcpNewReno
+
+CONFIGURE SIMULATION
+  > Distributed is not enabled
+  > System id........ 0
+  > No. of systems... 1
+  > Seed............. 123456789
+  > Duration......... 200.00 s (200000000000 ns)
+
+TCP OPTIMIZATION BASIC
+  > Clock granularity.......... 1 ns
+  > Initial CWND............... 10 packets
+  > Send buffer size........... 33.554 MB
+  > Receive buffer size........ 33.554 MB
+  > Segment size............... 1380 byte
+  > Timestamp option........... enabled
+  > SACK option................ enabled
+  > Window scaling option...... enabled
+  > Pacing..................... disabled
+
+SATELLITE NETWORK
+  > Number of satellites........ 1584
+  > Number of ground stations... 100
+  > Number of nodes............. 1684
+  > Installed Internet stacks
+  > Reading and creating ISLs
+    >> ISL data rate........ 10 Mbit/s
+    >> ISL max queue size... 100000 packets
+    >> Created 3168 ISL(s)
+  > Creating GSLs
+    >> GSL data rate........ 10 Mbit/s
+    >> GSL max queue size... 100000 packets
+    >> Read all GSL interfaces information for the 1684 nodes
+    >> Number of GSL interfaces to create... 1684
+    >> Finished install GSL interfaces (interfaces, network devices, one shared channel)
+    >> Finished installing traffic control layer qdisc which will be removed later
+    >> Assigning IP addresses...
+       (with many interfaces, this can take long due to an inefficient IP assignment conflict checker)
+       Progress (as there are more entries, it becomes slower):
+       - 10.04% (t = 0.16 s, update took 0.16 s)
+       - 20.07% (t = 0.32 s, update took 0.16 s)
+       - 30.11% (t = 0.48 s, update took 0.16 s)
+       - 40.14% (t = 0.65 s, update took 0.17 s)
+       - 50.18% (t = 0.82 s, update took 0.18 s)
+       - 60.21% (t = 1.01 s, update took 0.18 s)
+       - 70.25% (t = 1.21 s, update took 0.20 s)
+       - 80.29% (t = 1.41 s, update took 0.19 s)
+       - 90.32% (t = 1.61 s, update took 0.21 s)
+       - 100.00% (t = 1.81 s, update took 0.20 s)
+    >> Finished assigning IPs
+    >> Removing traffic control layers (qdiscs)...
+    >> Finished removing GSL queueing disciplines
+    >> GSL interfaces are setup
+  > Populating ARP caches
+
+SETUP SINGLE FORWARDING ROUTING
+  > Create initial single forwarding state
+  > Setting the routing arbiter on each node
+  > Forward state update interval: 100000000ns
+  > Perform first forwarding state load for t=0
+
+SETUP GSL IF BANDWIDTH HELPER
+  > GSL interface bandwidth update interval: 100000000ns
+  > Perform first GSL interface bandwidth setting for t=0
+
+TCP FLOW SCHEDULER
+  > Not enabled explicitly, so disabled
+
+UDP BURST SCHEDULER
+  > Not enabled explicitly, so disabled
+
+PINGMESH SCHEDULER
+  > Pingmesh scheduler is enabled
+  > Determined pingmesh pairs (size: 1)
+  > Removed previous pingmesh log files if present
+  > Ping interval: 1000000 ns
+  > Setting up 100 pingmesh servers
+  > Setting up 1 pingmesh clients
+
+SIMULATION
+Running the simulation for 200.00 simulation seconds...
+ 6.17% - Simulation Time = 12.34 s ::: Wallclock Time = 11.45 s
+Estimated wallclock time remaining: 2 minutes 54 seconds
+12.69% - Simulation Time = 25.37 s ::: Wallclock Time = 23.55 s
+Estimated wallclock time remaining: 2 minutes 42 seconds
+17.93% - Simulation Time = 35.85 s ::: Wallclock Time = 35.01 s
+Estimated wallclock time remaining: 2 minutes 40 seconds
+23.04% - Simulation Time = 46.07 s ::: Wallclock Time = 45.28 s
+Estimated wallclock time remaining: 2 minutes 31 seconds
+28.11% - Simulation Time = 56.23 s ::: Wallclock Time = 55.43 s
+Estimated wallclock time remaining: 2 minutes 21 seconds
+40.50% - Simulation Time = 80.99 s ::: Wallclock Time = 75.93 s
+Estimated wallclock time remaining: 1 minutes 51 seconds
+51.05% - Simulation Time = 102.10 s ::: Wallclock Time = 98.67 s
+Estimated wallclock time remaining: 1 minutes 34 seconds
+61.29% - Simulation Time = 122.58 s ::: Wallclock Time = 121.17 s
+Estimated wallclock time remaining: 1 minutes 16 seconds
+71.36% - Simulation Time = 142.72 s ::: Wallclock Time = 142.33 s
+81.35% - Simulation Time = 162.70 s ::: Wallclock Time = 163.53 s
+91.27% - Simulation Time = 182.54 s ::: Wallclock Time = 184.75 s
+Estimated wallclock time remaining: 17 seconds
+Finished simulation.
+Simulation of 200.0 seconds took in wallclock time 204.8 seconds.
+
+STORE TCP FLOW RESULTS
+  > Not enabled, so no TCP flow results are written
+
+STORE UDP BURST RESULTS
+  > Not enabled, so no UDP burst results are written
+
+STORE PINGMESH RESULTS
+  > Opening pingmesh log files:
+    >> Opened: ../../paper/ns3_experiments/a_b/runs/starlink_550_isls_1598_to_1680_pings/logs_ns3/pingmesh.csv
+    >> Opened: ../../paper/ns3_experiments/a_b/runs/starlink_550_isls_1598_to_1680_pings/logs_ns3/pingmesh.txt
+  > Writing pingmesh.txt header
+  > Closing pingmesh log files:
+    >> Closed: ../../paper/ns3_experiments/a_b/runs/starlink_550_isls_1598_to_1680_pings/logs_ns3/pingmesh.csv
+    >> Closed: ../../paper/ns3_experiments/a_b/runs/starlink_550_isls_1598_to_1680_pings/logs_ns3/pingmesh.txt
+  > Pingmesh log files have been written
+
+CLEAN-UP
+  > Simulator is destroyed
+
+TIMING RESULTS
+------
+[    0.0 -     0.0] (0.0 s) :: Configure run and logs directory
+[    0.0 -     0.0] (0.0 s) :: Configure simulator
+[    0.0 -     0.0] (0.0 s) :: Setup TCP parameters
+[    0.0 -    11.5] (11.5 s) :: Create initial single forwarding state
+[   11.5 -    52.3] (40.8 s) :: Setup routing arbiter on each node
+[   52.3 -    54.1] (1.8 s) :: Create initial single forwarding state
+[   54.1 -    54.1] (0.0 s) :: Set first GSL interface bandwidth
+[   54.1 -    54.1] (0.0 s) :: Determined pingmesh pairs
+[   54.1 -    54.1] (0.0 s) :: Remove previous pingmesh log files
+[   54.1 -    54.2] (0.0 s) :: Setup pingmesh servers
+[   54.2 -    54.2] (0.0 s) :: Setup pingmesh clients
+[   54.2 -    54.2] (0.0 s) :: Whatever is between previous timestamp and the simulation run
+[   54.2 -   259.0] (204.8 s) :: Run simulation
+[  259.0 -   259.1] (0.1 s) :: Write pingmesh log files
+[  259.1 -   259.5] (0.4 s) :: Destroy simulator
+
+BASIC SIMULATION END
+  > Date... Wednesday February 19, 2025
+  > Time... 11:55:50
+

@@ -22,7 +22,8 @@
 
 
 import sys
-from satgen.post_analysis.analyze_rtt import analyze_rtt
+#from satgen.post_analysis.analyze_rtt import analyze_rtt
+from satgen.post_analysis import analyze_rtt
 
 
 def main():
