@@ -11,22 +11,23 @@ SPE_proposed_elevation_angle contains the results corresponding to Starlink_s1, 
 To change the elevation angles considered for the simulations, files main_kuiper_630.py, main_telesat_1015.py and main_starlink_550.py must be manually adapted.
 
 For Starlink S1 simulations, depending on the required routing algorithm, where 100, 1000 and 10000 are the snapshot interval values, the commands are:
+```
+python3 main_starlink_550.py 200 100 isls_plus_grid ground_stations_top_100 algorithm_free_one_only_over_isls 1
+python3 main_starlink_550.py 200 1000 isls_plus_grid ground_stations_top_100 algorithm_free_one_only_over_isls 1
+python3 main_starlink_550.py 200 10000 isls_plus_grid ground_stations_top_100 algorithm_free_one_only_over_isls 1
 
-time python3 main_starlink_550.py 200 100 isls_plus_grid ground_stations_top_100 algorithm_free_one_only_over_isls 1
-time python3 main_starlink_550.py 200 1000 isls_plus_grid ground_stations_top_100 algorithm_free_one_only_over_isls 1
-time python3 main_starlink_550.py 200 10000 isls_plus_grid ground_stations_top_100 algorithm_free_one_only_over_isls 1
+python3 main_starlink_550.py 200 100 isls_none ground_stations_top_100 algorithm_free_one_only_gs_relays 1
+python3 main_starlink_550.py 200 1000 isls_none ground_stations_top_100 algorithm_free_one_only_gs_relays 1
+python3 main_starlink_550.py 200 10000 isls_none ground_stations_top_100 algorithm_free_one_only_gs_relays 1
 
-time python3 main_starlink_550.py 200 100 isls_none ground_stations_top_100 algorithm_free_one_only_gs_relays 1
-time python3 main_starlink_550.py 200 1000 isls_none ground_stations_top_100 algorithm_free_one_only_gs_relays 1
-time python3 main_starlink_550.py 200 10000 isls_none ground_stations_top_100 algorithm_free_one_only_gs_relays 1
+python3 main_starlink_550.py 200 100 isls_plus_grid ground_stations_top_100 algorithm_free_gs_one_sat_many_only_over_isls 1
+python3 main_starlink_550.py 200 1000 isls_plus_grid ground_stations_top_100 algorithm_free_gs_one_sat_many_only_over_isls 1
+python3 main_starlink_550.py 200 10000 isls_plus_grid ground_stations_top_100 algorithm_free_gs_one_sat_many_only_over_isls 1
 
-time python3 main_starlink_550.py 200 100 isls_plus_grid ground_stations_top_100 algorithm_free_gs_one_sat_many_only_over_isls 1
-time python3 main_starlink_550.py 200 1000 isls_plus_grid ground_stations_top_100 algorithm_free_gs_one_sat_many_only_over_isls 1
-time python3 main_starlink_550.py 200 10000 isls_plus_grid ground_stations_top_100 algorithm_free_gs_one_sat_many_only_over_isls 1
-
-time python3 main_starlink_550.py 200 100 isls_plus_grid ground_stations_top_100 algorithm_free_gs_one_sat_many_only_over_isls 1
-time python3 main_starlink_550.py 200 1000 isls_plus_grid ground_stations_top_100 algorithm_free_gs_one_sat_many_only_over_isls 1
-time python3 main_starlink_550.py 200 10000 isls_plus_grid ground_stations_top_100 algorithm_paired_many_only_over_isls 1
+python3 main_starlink_550.py 200 100 isls_plus_grid ground_stations_top_100 algorithm_free_gs_one_sat_many_only_over_isls 1
+python3 main_starlink_550.py 200 1000 isls_plus_grid ground_stations_top_100 algorithm_free_gs_one_sat_many_only_over_isls 1
+python3 main_starlink_550.py 200 10000 isls_plus_grid ground_stations_top_100 algorithm_paired_many_only_over_isls 1
+```
 
 Similarly for TelesatT1 (main_telesat_1015.py) and Kuiper K1 (main_kuiper_630)
 
